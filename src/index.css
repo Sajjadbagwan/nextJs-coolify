@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Isaac Lord brand — sourced from live site CSS
+       Primary navy: #0c355a · Mid: #115997 · Accent blue: #599fdd
+       Light bg: #f2f2f2 · Text: #312f2c · Sale: #aa131f · Trust: #60993e */
+    --background: 0 0% 100%;
+    --foreground: 30 5% 18%;             /* #312f2c */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 5% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 5% 18%;
+
+    --primary: 209 76% 20%;              /* #0c355a — deep navy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 95%;               /* #f2f2f2 */
+    --secondary-foreground: 209 76% 20%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 30 4% 35%;
+
+    --accent: 209 67% 61%;               /* #599fdd */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 354 79% 38%;          /* #aa131f */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 87%;                  /* #dee2e6 */
+    --input: 0 0% 87%;
+    --ring: 209 79% 33%;                 /* #115997 */
+
+    --radius: 0.25rem;
+
+    /* Brand tokens — exact from live site */
+    --brand-dark: 209 76% 20%;           /* #0c355a */
+    --brand-mid: 209 79% 33%;            /* #115997 */
+    --brand-light-blue: 209 67% 61%;     /* #599fdd */
+    --brand-bg: 0 0% 95%;                /* #f2f2f2 */
+    --trust-green: 95 43% 42%;           /* #60993e */
+    --sale-red: 354 79% 38%;             /* #aa131f */
+    --loyalty-gold: 45 100% 50%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    min-width: 0;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+  html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Open Sans', 'Hind', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  #root {
+    overflow-x: hidden;
+  }
+  input, select, textarea {
+    font-size: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Oswald', 'Open Sans', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Marquee animation for USP bar */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .font-heading {
+    font-family: 'Oswald', sans-serif;
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+}
